@@ -1,0 +1,16 @@
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+AddDefaultCharset utf-8
+
+RewriteCond %{REQUEST_URL} !^/(web)
+RewriteRule ^assets/(.*)$ /lymshop/web/assets/$1 [L]
+RewriteRule ^css/(.*)$ /lymshop/web/css/$1 [L]
+RewriteRule ^fonts/(.*)$ /lymshop/web/fonts/$1 [L]
+RewriteRule ^js/(.*)$ /lymshop/web/js/$1 [L]
+RewriteRule ^images/(.*)$ /lymshop/web/images/$1 [L]
+RewriteRule ^(.*)?$ /lymshop/web/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /lymshop/web/index.php
